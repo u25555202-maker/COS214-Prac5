@@ -6,7 +6,7 @@
 // ConcreteObserver: simulates the control-room dashboard operators watch.
 class Dashboard : public Observer {
 public:
-    void update(Incident* incident) override;
+    void update(Subject* subject) override;
 };
 
 #endif
