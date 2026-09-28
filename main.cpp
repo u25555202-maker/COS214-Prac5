@@ -1,13 +1,13 @@
 #include <iostream>
 #include <memory>
-#include "Facade/EmergencyResponseFacade.h"
-#include "Command/LockAreaCommand.h"
-#include "Command/EvacuationCommand.h"
-#include "Command/CancelCommand.h"
-#include "Command/OperatorConsole.h"
+#include "EmergencyResponseFacade.h"
+#include "LockAreaCommand.h"
+#include "EvacuationCommand.h"
+#include "CancelCommand.h"
+#include "OperatorConsole.h"
 #include "Incident.h"
-#include "Observer/Dashboard.h"
-#include "Observer/AuditLogger.h"
+#include "Dashboard.h"
+#include "AuditLogger.h"
 using namespace std;
 
 static void banner(const string& text) {

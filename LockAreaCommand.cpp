@@ -1,5 +1,5 @@
 #include "LockAreaCommand.h"
-#include "../AccessControlSystem.h"
+#include "AccessControlSystem.h"
 
 LockAreaCommand::LockAreaCommand(AccessControlSystem* access, std::string area)
     : access(access), area(std::move(area)) {}

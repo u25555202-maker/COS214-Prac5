@@ -1,5 +1,5 @@
 #include "AuditLogger.h"
-#include "../Incident.h"
+#include "Incident.h"
 #include <iostream>
 using namespace std;
 

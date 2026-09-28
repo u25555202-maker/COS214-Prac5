@@ -1,5 +1,5 @@
 #include "Incident.h"
-#include "State/ReportedState.h"
+#include "ReportedState.h"
 #include <algorithm>
 #include <iostream>
 using namespace std;

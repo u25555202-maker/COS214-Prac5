@@ -1,6 +1,6 @@
 #include "ContainedState.h"
 #include "ResolvedState.h"
-#include "../Incident.h"
+#include "Incident.h"
 
 void ContainedState::dispatch(Incident* incident) {
     incident->rejectTransition("dispatch");

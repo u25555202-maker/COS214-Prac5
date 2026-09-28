@@ -1,6 +1,6 @@
 #include "ReportedState.h"
 #include "DispatchedState.h"
-#include "../Incident.h"
+#include "Incident.h"
 
 void ReportedState::dispatch(Incident* incident) {
     incident->setState(new DispatchedState());

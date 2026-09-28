@@ -2,7 +2,7 @@
 #define INCIDENTCOORDINATOR_H
 
 #include "ResponseMediator.h"
-#include "../Adapter/CommunicationChannel.h"
+#include "CommunicationChannel.h"
 
 class SecurityTeam;
 class MedicalTeam;

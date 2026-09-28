@@ -1,5 +1,5 @@
 #include "ResolvedState.h"
-#include "../Incident.h"
+#include "Incident.h"
 
 void ResolvedState::dispatch(Incident* incident) {
     incident->rejectTransition("dispatch");

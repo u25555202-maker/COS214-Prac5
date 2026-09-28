@@ -2,7 +2,7 @@
 #include "SecurityTeam.h"
 #include "MedicalTeam.h"
 #include "FacilitiesTeam.h"
-#include "../Incident.h"
+#include "Incident.h"
 #include <iostream>
 using namespace std;
 

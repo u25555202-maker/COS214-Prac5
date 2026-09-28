@@ -5,16 +5,16 @@
 #include <vector>
 #include <string>
 
-#include "../Incident.h"
-#include "../AccessControlSystem.h"
-#include "../Command/OperatorConsole.h"
-#include "../Mediator/IncidentCoordinator.h"
-#include "../Mediator/SecurityTeam.h"
-#include "../Mediator/MedicalTeam.h"
-#include "../Mediator/FacilitiesTeam.h"
-#include "../Adapter/LegacyPagerAdapter.h"
-#include "../Observer/Dashboard.h"
-#include "../Observer/AuditLogger.h"
+#include "Incident.h"
+#include "AccessControlSystem.h"
+#include "OperatorConsole.h"
+#include "IncidentCoordinator.h"
+#include "SecurityTeam.h"
+#include "MedicalTeam.h"
+#include "FacilitiesTeam.h"
+#include "LegacyPagerAdapter.h"
+#include "Dashboard.h"
+#include "AuditLogger.h"
 
 // Facade (GoF Facade pattern). Owns and wires up the whole subsystem
 // (access control, response teams, mediator, communication adapter,

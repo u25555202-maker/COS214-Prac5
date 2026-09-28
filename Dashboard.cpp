@@ -1,5 +1,5 @@
 #include "Dashboard.h"
-#include "../Incident.h"
+#include "Incident.h"
 #include <iostream>
 using namespace std;
 

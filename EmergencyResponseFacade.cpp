@@ -1,7 +1,7 @@
 #include "EmergencyResponseFacade.h"
-#include "../Command/DispatchUnitCommand.h"
-#include "../Command/LockAreaCommand.h"
-#include "../Command/AlertCommand.h"
+#include "DispatchUnitCommand.h"
+#include "LockAreaCommand.h"
+#include "AlertCommand.h"
 #include <iostream>
 using namespace std;
 

@@ -1,5 +1,5 @@
 #include "EvacuationCommand.h"
-#include "../Mediator/FacilitiesTeam.h"
+#include "FacilitiesTeam.h"
 
 EvacuationCommand::EvacuationCommand(FacilitiesTeam* facilities, std::string area, Incident* incident)
     : facilities(facilities), area(std::move(area)), incident(incident) {}

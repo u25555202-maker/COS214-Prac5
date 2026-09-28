@@ -1,5 +1,5 @@
 #include "AlertCommand.h"
-#include "../Adapter/CommunicationChannel.h"
+#include "CommunicationChannel.h"
 
 AlertCommand::AlertCommand(CommunicationChannel* channel, std::string message, std::string location)
     : channel(channel), message(std::move(message)), location(std::move(location)) {}

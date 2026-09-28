@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "State/IncidentState.h"
-#include "Observer/Observer.h"
+#include "IncidentState.h"
+#include "Observer.h"
 
 // Incident plays two GoF roles at once (Rule 7 explicitly allows this
 // where genuinely justified):

@@ -2,7 +2,7 @@
 #define FACILITIESTEAM_H
 
 #include "ResponseComponent.h"
-#include "../AccessControlSystem.h"
+#include "AccessControlSystem.h"
 
 // FacilitiesTeam is a Mediator colleague AND a client of the
 // AccessControlSystem subsystem service. It is the component the

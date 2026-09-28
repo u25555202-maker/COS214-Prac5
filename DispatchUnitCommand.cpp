@@ -1,6 +1,6 @@
 #include "DispatchUnitCommand.h"
-#include "../Mediator/ResponseComponent.h"
-#include "../Incident.h"
+#include "ResponseComponent.h"
+#include "Incident.h"
 
 DispatchUnitCommand::DispatchUnitCommand(ResponseComponent* unit, Incident* incident, std::string location)
     : unit(unit), incident(incident), location(std::move(location)) {}
