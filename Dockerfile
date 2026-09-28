@@ -1,16 +1,16 @@
-FROM ubuntu:24.04
+FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y \
     g++ \
     make \
     gdb \
     valgrind \
-    git \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /CampusGuard
+WORKDIR /app
+
 COPY . .
 
 RUN make
 
-CMD ["make"]
+CMD ["./campusguard"]
