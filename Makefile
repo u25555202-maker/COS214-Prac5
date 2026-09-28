@@ -1,69 +1,22 @@
-
-# Target executable, default name
-TARGET= CampusGuard
-
-# Compiler flags
-CXXFLAG = -std=c++11 -g -Wall -Werror 
-
-##DO NOT TOUCH----------------------------------------------------------------------
-
-# Compiler
 CXX = g++
+CXXFLAGS = -std=c++11 -Wall -Wextra
 
-# all method names
-.PHONY: all clean run valgrind
+TARGET = campusguard
+SOURCES = $(wildcard *.cpp)
+OBJECTS = $(SOURCES:.cpp=.o)
 
-#Don't delete .o
-.PRECIOUS: obj/%.o
+all: $(TARGET)
 
-# Source files
-SRCS=$(wildcard src/*.cpp) $(wildcard src/*/*.cpp)
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJECTS)
 
-# Object files
-OBJSTEMP = $(SRCS:.cpp=.o)
-
-OBJS2=$(patsubst src/%,%,$(OBJSTEMP))
-
-OBJS3=$(subst /, ,$(OBJS2))
-
-OBJ_DIR=$(sort $(patsubst %.o,,$(OBJS3)))
-OBJDIRS = $(addprefix obj/,$(OBJ_DIR))
-
-INC_FLAGS := $(addprefix -Isrc/, $(OBJ_DIR))
-CXXFLAGS=$(CXXFLAG) -I. -Isrc $(INC_FLAGS)
-
-OBJS=$(patsubst src/%,obj/%,$(OBJSTEMP))
-
-all: bin/$(TARGET) run
-
-
-bin/$(TARGET): $(OBJS) $(SRCS) |bin
-	$(CXX) $(CXXFLAGS) -o bin/$(TARGET) $(OBJS)
-
-
-obj/%.o: src/%.cpp | $(OBJDIRS)
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-
-run: bin/$(TARGET) $(SRCS) $(OBJS) 
-	./bin/$(TARGET)
-
 clean:
-	rm -f $(OBJS) bin/$(TARGET) 
+	rm -f $(OBJECTS) $(TARGET)
 
-# Run valgrind
-valgrind:bin/$(TARGET) $(SRCS) $(OBJS) 
-	valgrind --leak-check=full ./bin/$(TARGET)
+run: $(TARGET)
+	./$(TARGET)
 
-#create directory if needed
-$(OBJDIRS):
-	mkdir -p $@
-
-bin:
-	mkdir -p bin
-	
-print-%:
-	@echo $* = $($*)
-
-gdb:
-	gdb ./bin/$(TARGET)
+.PHONY: all clean run

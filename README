@@ -1,0 +1,25 @@
+# CampusGuard
+
+CampusGuard is an emergency-response coordination system developed for
+COS 214 Practical 5.
+
+The system demonstrates the integration of six Gang of Four design patterns:
+
+- Command
+- Mediator
+- Adapter
+- Facade
+- State
+- Observer
+
+## Requirements
+
+- Docker
+- Docker Compose
+
+## Build and Run with Docker
+
+From the root directory of the project, run:
+
+```bash
+docker compose up --build

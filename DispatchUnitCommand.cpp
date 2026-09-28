@@ -6,8 +6,13 @@ DispatchUnitCommand::DispatchUnitCommand(ResponseComponent* unit, Incident* inci
     : unit(unit), incident(incident), location(std::move(location)) {}
 
 void DispatchUnitCommand::execute() {
-    incident->dispatch(); // State transition: Reported -> Dispatched
+
+    if (incident->getStatusName() == "Reported") {
+        incident->dispatch(); // State transition: Reported -> Dispatched
+    }
+
     unit->dispatchTo(location, incident);
+
 }
 
 std::string DispatchUnitCommand::description() const {

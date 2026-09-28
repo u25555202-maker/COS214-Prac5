@@ -5,7 +5,7 @@
             "name": "GDB Launch (make)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/taskforce",
+            "program": "${workspaceFolder}/campusGuard",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
