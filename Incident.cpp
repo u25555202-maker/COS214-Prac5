@@ -1,6 +1,5 @@
 #include "Incident.h"
 #include "ReportedState.h"
-#include <algorithm>
 #include <iostream>
 using namespace std;
 
@@ -22,18 +21,4 @@ void Incident::setState(IncidentState* newState) {
 void Incident::rejectTransition(const string& attempted) const {
     cout << "[INCIDENT #" << id << "] REJECTED: cannot '" << attempted
          << "' while in state '" << state->name() << "'" << endl;
-}
-
-void Incident::attach(Observer* obs) {
-    observers.push_back(obs);
-}
-
-void Incident::detach(Observer* obs) {
-    observers.erase(remove(observers.begin(), observers.end(), obs), observers.end());
-}
-
-void Incident::notify() {
-    for (Observer* obs : observers) {
-        obs->update(this);
-    }
 }

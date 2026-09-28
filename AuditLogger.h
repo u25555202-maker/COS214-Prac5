@@ -8,7 +8,7 @@
 // which is the point of Observer over Incident calling both directly.
 class AuditLogger : public Observer {
 public:
-    void update(Incident* incident) override;
+    void update(Subject* subject) override;
 };
 
 #endif
