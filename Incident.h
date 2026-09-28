@@ -2,25 +2,25 @@
 #define INCIDENT_H
 
 #include <string>
-#include <vector>
 #include <memory>
 #include "IncidentState.h"
-#include "Observer.h"
+#include "Subject.h"
 
 // Incident plays two GoF roles at once (Rule 7 explicitly allows this
 // where genuinely justified):
 //   - State Context: delegates status transitions to the current
 //     IncidentState and swaps state objects as the incident progresses.
-//   - Observer Subject: notifies attached observers whenever its status
-//     changes, without knowing whether that's a Dashboard, an AuditLogger,
-//     both, or something added later.
+//   - ConcreteSubject: inherits Subject's attach()/detach()/notify() and
+//     adds the state observers actually care about (status, id, type,
+//     location), without knowing whether an observer is a Dashboard, an
+//     AuditLogger, or something added later.
 //
 // Ownership: Incident OWNS its current IncidentState (unique_ptr) -- states
-// are cheap, incident-specific, and never shared. Incident does NOT own its
-// Observers (raw, non-owning pointers) -- observers outlive individual
-// incidents and are shared across many incidents (e.g. one Dashboard for
-// the whole campus).
-class Incident {
+// are cheap, incident-specific, and never shared. The observer list itself
+// lives in Subject and remains non-owning there -- observers outlive
+// individual incidents and are shared across many of them (e.g. one
+// Dashboard for the whole campus).
+class Incident : public Subject {
 public:
     Incident(int id, std::string type, std::string location);
     ~Incident();
@@ -41,17 +41,11 @@ public:
     std::string getLocation() const { return location; }
     std::string getStatusName() const { return state->name(); }
 
-    // Observer subject responsibilities.
-    void attach(Observer* obs);
-    void detach(Observer* obs);
-    void notify();
-
 private:
     int id;
     std::string type;
     std::string location;
     std::unique_ptr<IncidentState> state;
-    std::vector<Observer*> observers;
 };
 
 #endif
