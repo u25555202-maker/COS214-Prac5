@@ -14,12 +14,7 @@ using namespace std;
 
 
 
-// ============================================================
-// STORY 1
-// Fire in the Engineering Building
-//
-// Demonstrates:
-// Facade -> Command -> State -> Observer -> Mediator -> Adapter
+// Scenario 1: Fire emergency using the facade
 // ============================================================
 void storyOne(EmergencyResponseFacade& facade) {
 
@@ -41,12 +36,7 @@ void storyOne(EmergencyResponseFacade& facade) {
 }
 
 
-// ============================================================
-// STORY 2
-// Gas leak in the Chemistry Lab
-//
-// Demonstrates direct use of the subsystem without the Facade:
-// Command + Mediator + State + Observer + Undo
+/// Scenario 2: Gas leak handled directly by the operator
 // ============================================================
 void storyTwo(EmergencyResponseFacade& facade) {
 
@@ -59,6 +49,7 @@ void storyTwo(EmergencyResponseFacade& facade) {
     Dashboard dashboard;
     AuditLogger logger;
 
+    //add observers
     incident.attach(&dashboard);
     incident.attach(&logger);
     incident.notify();
